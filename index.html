@@ -1,98 +1,28 @@
-<! DOCTYPE html>
-<html lang="it">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anime Page</title>
+  <title>GitHub</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    html, body {
-      height: 100%;
-      overflow: hidden;
-      background: #000;
-    }
-    
-    #loader {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    
-    .spinner {
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      border-top: 4px solid white;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 20px;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    iframe {
-      width: 100%;
-      height:  100%;
-      border: none;
-      display: none;
-    }
-    
-    iframe.loaded {
-      display: block;
-    }
-  </style>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #000;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+</style>
 </head>
 <body>
-  <div id="loader">
-    <div class="spinner"></div>
-    <p>Caricamento anime...</p>
-  </div>
-  
-  <iframe id="animeFrame"></iframe>
-  
-  <script>
-    // Configurazione
-    const ANIME_SITE = 'https://anikai.to/home';
-    
-    // Carica l'iframe
-    const iframe = document.getElementById('animeFrame');
-    const loader = document.getElementById('loader');
-    
-    // Imposta attributi iframe per massima compatibilità
-    iframe. src = ANIME_SITE;
-    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
-    iframe.allowFullscreen = true;
-    iframe.sandbox = 'allow-same-origin allow-scripts allow-popups allow-forms allow-modals allow-top-navigation allow-top-navigation-by-user-activation allow-downloads allow-storage-access-by-user-activation';
-    
-    // Gestione caricamento
-    iframe.onload = function() {
-      loader.style. display = 'none';
-      iframe.classList.add('loaded');
-    };
-    
-    // Fallback:  nascondi loader dopo 3 secondi comunque
-    setTimeout(() => {
-      loader.style.display = 'none';
-      iframe.classList.add('loaded');
-    }, 3000);
-    
-    // Gestione errori
-    iframe.onerror = function() {
-      loader.innerHTML = '<p style="color: #f55;">❌ Errore di caricamento</p><p><a href="' + ANIME_SITE + '" style="color: white;" target="_blank">Apri in una nuova scheda</a></p>';
-    };
-  </script>
+  <iframe 
+    src="https://eaglercraft.com/"
+    sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-modals allow-storage-access-by-user-activation"
+    allow="autoplay; fullscreen; picture-in-picture"
+  ></iframe>
 </body>
 </html>
